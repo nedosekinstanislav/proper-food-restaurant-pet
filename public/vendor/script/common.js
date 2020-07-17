@@ -9,5 +9,9 @@ function locStr() {
     som = som * 1 + 1; 
     window.localStorage.setItem('test', som);
     
-    alert(som);
+    console.log(som);
+};
+
+function addToCart() {
+    console.log('click');
 };

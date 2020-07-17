@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.cardProduct__block{
+    margin: 15px 0;
+    padding: 15px;
+    border: 2px solid #0f0f0f;
+    min-height: 375px;
+}
+
+.image-custom{
+    height: 180px;
+}
+
+.dedcription-paragraph{
+    text-align: center;
+    font-weight: 700;
+    min-height: 50px;
+}
+
+@media screen and (max-width: 768px){
+    .image-custom{
+        height: 100%;
+    }
+}

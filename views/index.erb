@@ -1,3 +1,28 @@
 <h1> Добро пожаловать в ресторан правильной еды </h1>
 
-<button onclick="locStr()" type="button" class="btn btn-outline-dark btn-custom">Перейти</button>
+<div class="row">
+    <% @products.each do |item| %>
+        <div class="col-md-3">
+            <div class="cardProduct__block">
+                <div>
+                    <%= item.title %>
+                </div>
+                <div class="image-custom">
+                    <img class="img-fluid" src="<%= item.path_to_image %>" /> 
+                </div>
+                <div class="dedcription-paragraph">
+                    <%= item.description %>
+                </div>
+                <div>
+                    Цена:<%= item.price %>
+                </div>
+                <div>
+                    Размер(Кол-во):<%= item.size %>
+                </div>
+                <div><button onclick="addToCart()" class="btn btn-sm btn-success">Добавить в корзину</button></div>
+            </div>
+        </div>
+    <% end %>
+</div>
+<br />
+<!--<button onclick="locStr()" type="button" class="btn btn-outline-dark btn-custom">Перейти</button>
