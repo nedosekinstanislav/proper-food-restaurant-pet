@@ -19,7 +19,7 @@
                 <div>
                     Размер(Кол-во):<%= item.size %>
                 </div>
-                <div><button onclick="addToCart()" class="btn btn-sm btn-success">Добавить в корзину</button></div>
+                <div><button onclick="addToCart(<%= item.id %>)" class="btn btn-sm btn-success">Добавить в корзину</button></div>
             </div>
         </div>
     <% end %>

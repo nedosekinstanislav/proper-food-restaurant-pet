@@ -12,6 +12,11 @@ function locStr() {
     console.log(som);
 };
 
-function addToCart() {
-    console.log('click');
+function addToCart(id) {
+    let key = 'product ' + id
+    let productId = window.localStorage.getItem(key);
+    
+    productId = productId * 1 + 1;
+    window.localStorage.setItem(key, productId)
+    console.log('add product with id: ' + productId);
 };
