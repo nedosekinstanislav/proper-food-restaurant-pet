@@ -4,18 +4,18 @@
 
 function locStr() {
 
-    let som = localStorage.getItem('test');
+    let som = window.localStorage.getItem('test');
 
     som = som * 1 + 1; 
-    localStorage.setItem('test', som);
+    window.localStorage.setItem('test', som);
 };
 
 function addToCart(id) {
     let key = 'product_ ' + id
-    let productId = localStorage.getItem(key);
+    let productId = window.localStorage.getItem(key);
     
     productId = productId * 1 + 1;
-    localStorage.setItem(key, productId)
+    window.localStorage.setItem(key, productId)
 
     updateOrders();
 };
@@ -23,13 +23,13 @@ function addToCart(id) {
 function updateOrders() {
     const orders = getOrders();
     $('.orders-input').val(orders);
-}
+};
 
 function getNumber() {
     const cnt = 0;
-    for (let index = 0; index < localStorage.length; index++) {
-        const key = localStorage.key(index);
-        const value = localStorage.getItem(key);
+    for (let index = 0; index < window.localStorage.length; index++) {
+        const key = window.localStorage.key(index);
+        const value = window.localStorage.getItem(key);
 
         if (key.indexOf('product_') == 0){
             cnt = cnt + value;
@@ -39,14 +39,14 @@ function getNumber() {
 };
 
 function getOrders() {
-    const orders = '';
-    for (let index = 0; index < localStorage.length; index++) {
-        const key = localStorage.key(index);
-        const value = localStorage.getItem(key);
+    let orders = '';
+    for (let index = 0; index < window.localStorage.length; index++) {
+        const key = window.localStorage.key(index);
+        const value = window.localStorage.getItem(key);
 
         if (key.indexOf('product_') == 0){
-           orders = orders + key + '=' + value + ',';
+            orders = orders + key + '=' + value + ',';
         };
-        return orders;
     };
+    return orders;
 };
