@@ -20,3 +20,17 @@ function addToCart(id) {
     window.localStorage.setItem(key, productId)
     console.log('add product with id: ' + productId);
 };
+
+function getNumber(params) {
+    const cnt = 0;
+    for (let index = 0; index < window.localStorage.length; index++) {
+        const key = window.localStorage.key(index);
+        const value = window.localStorage.getItem(key);
+
+        if (key.indexOf('product_') == 0){
+            cnt = cnt + value;
+        };
+    };
+};
+
+console.log(getNumber());
