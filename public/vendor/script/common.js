@@ -2,22 +2,15 @@
 //     // code
 // });
 
-function locStr() {
-
-    let som = window.localStorage.getItem('test');
-
-    som = som * 1 + 1; 
-    window.localStorage.setItem('test', som);
-};
-
 function addToCart(id) {
-    let key = 'product_ ' + id
-    let productId = window.localStorage.getItem(key);
+    let key = 'product_' + id
+    let productId = localStorage.getItem(key);
     
     productId = productId * 1 + 1;
-    window.localStorage.setItem(key, productId)
+    localStorage.setItem(key, productId);
 
     updateOrders();
+    updateButton();
 };
 
 function updateOrders() {
@@ -25,11 +18,16 @@ function updateOrders() {
     $('.orders-input').val(orders);
 };
 
+function updateButton() {
+    let text = 'Корзина (' + getNumber() + ')';
+    $('.orders-button').val(text);
+};
+
 function getNumber() {
-    const cnt = 0;
-    for (let index = 0; index < window.localStorage.length; index++) {
-        const key = window.localStorage.key(index);
-        const value = window.localStorage.getItem(key);
+    let cnt = 0;
+    for (let index = 0; index < localStorage.length; index++) {
+        const key = localStorage.key(index);
+        const value = localStorage.getItem(key);
 
         if (key.indexOf('product_') == 0){
             cnt = cnt + value;
@@ -40,9 +38,9 @@ function getNumber() {
 
 function getOrders() {
     let orders = '';
-    for (let index = 0; index < window.localStorage.length; index++) {
-        const key = window.localStorage.key(index);
-        const value = window.localStorage.getItem(key);
+    for (let index = 0; index < localStorage.length; index++) {
+        let key = localStorage.key(index);
+        const value = localStorage.getItem(key);
 
         if (key.indexOf('product_') == 0){
             orders = orders + key + '=' + value + ',';
