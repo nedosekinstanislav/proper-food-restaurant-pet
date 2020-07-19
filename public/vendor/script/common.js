@@ -14,8 +14,8 @@ function addToCart(id) {
 };
 
 function updateOrders() {
-    const orders = getOrders();
-    $('.orders-input').val(orders);
+    const ordersUpdate = getOrders();
+    $('.orders-input').val(ordersUpdate);
 };
 
 function updateButton() {
