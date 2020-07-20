@@ -1,0 +1,49 @@
+<h2> Корзина </h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Наименование</th>
+            <th scope="col">Размер</th>
+            <th scope="col">Описание</th>
+            <th scope="col">Цена</th>
+        </tr>
+    </thead>
+  <tbody>
+    <% totalPrice = 0 %>
+    <% totalQty = 0 %>
+    <% @items.each do |item| %>
+        <tr>
+            <th><%= item[0].title %></th>
+            <th><%= item[0].size %></th>
+            <th><%= item[0].description %></th>
+            <th><%= item[0].price %></th>
+        </tr>
+        <% totalPrice += item[0].price * totalQty += item[1].to_i %>
+        <% totalQty += item[1].to_i %>
+    <% end %>
+        <tr>
+            <th scope="col">Общая сумма <%= totalPrice %> Руб.</th>
+            <th scope="col">Всего количество <%= totalQty %></th>
+        </tr>
+    </tbody>
+</table>
+
+<form action="/order" methods="POST" role="form">
+
+    <input name="order[order_input]" type="hidden" />
+
+    <div class="form-group">
+        <label>Ваше имя</label>
+        <input name="order[name]" type="text" class="form-control" placeholder="Введите имя">
+    </div>
+    <div class="form-group">
+        <label>Ваш телефон</label>
+        <input name="order[phone]" type="text" class="form-control" placeholder="Введите телефон">
+    </div>
+    <div class="form-group">
+        <label>Адрес</label>
+        <textarea name="order[adress]" type="text" class="form-control" placeholder="Доставка по адресу"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">ОТПРАВИТЬ</button>
+</form>

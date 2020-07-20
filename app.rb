@@ -20,25 +20,29 @@ end
 
 post '/cart' do
   ordersInput =  params[:orders]
-  @orders = parseOrders ordersInput
+  @items = parseOrders ordersInput
 
-  erb "test #{@orders.inspect}"
+  @items.each do |item|
+    item[0] = Product.find(item[0])
+  end
+
+  erb :cart
 end
 
 def parseOrders ordersInput
 
-    s1 = ordersInput.split(/,/)
+  s1 = ordersInput.split(/,/)
 
-    arr = []
+  arr = []
 
-    s1.each do |i|
-        s2 = i.split(/\=/)
-        s3 = s2[0].split(/_/)
+  s1.each do |i|
+    s2 = i.split(/\=/)
+    s3 = s2[0].split(/_/)
 
-        id = s3[1]
-        cnt = s2[1]
-        arr2 = [id, cnt]
-        arr.push arr2
-    end
-    return arr
+    id = s3[1]
+    cnt = s2[1]
+    arr2 = [id, cnt]
+    arr.push arr2
+  end
+  return arr
 end
