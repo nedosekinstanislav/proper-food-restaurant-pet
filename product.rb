@@ -24,18 +24,26 @@
 # end
 
 # 
-orders = "product_1=2,product_2=2,product_3=3"
+# ordersLine = "product_1=2,product_2=2,product_3=3"
 
-s1 = orders.split(/,/)
+# def parseOrders ordersLine
 
-puts s1.inspect
+#     s1 = ordersLine.split(/,/)
 
-s1.each do |i|
-    s2 = i.split(/=/)
-    s3 = s2[0].split(/_/)
+#     arr = []
 
-    key = s3[1]
-    value = s2[1]
+#     puts s1.inspect
 
-    puts "Продукт id: #{key}, элемент: #{value}"
-end
+#     s1.each do |i|
+#         s2 = i.split(/=/)
+#         s3 = s2[0].split(/_/)
+
+#         id = s3[1]
+#         cnt = s2[1]
+#         arr2 = [id, cnt]
+#         arr.push arr2
+#     end
+#     return arr
+# end
+
+# puts parseOrders(ordersLine).inspect
