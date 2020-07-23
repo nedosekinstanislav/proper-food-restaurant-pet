@@ -54,7 +54,7 @@ function cancelOrder() {
     updateOrders();
     updateButton();
     
-    return false;
+    const cart = document.querySelector('.cart').text("Ваша корзина очищена");
 
-    const cart = document.querySelector('.cart').text("asd");
+    return false;
 };

@@ -31,7 +31,7 @@
     </table>
 </div>
 
-<form action="/place_order" methods="POST" role="form">
+<form action="/place_order" method="POST" role="form">
 
     <input name="order[orders_input]" type="hidden" value="<%= @orders_input %>" />
 
@@ -48,5 +48,5 @@
         <textarea name="order[adress]" type="text" class="form-control" placeholder="Доставка по адресу"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">ОТПРАВИТЬ</button>
-    <button class="btn btn-danger" onclick="return cancelOrder();">УДАЛИТЬ</button>
+    <button class="btn btn-danger" onclick="return cancelOrder()">УДАЛИТЬ</button>
 </form>
