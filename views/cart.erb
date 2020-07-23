@@ -1,37 +1,39 @@
 <h2> Корзина </h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Наименование</th>
-            <th scope="col">Размер</th>
-            <th scope="col">Описание</th>
-            <th scope="col">Цена</th>
-        </tr>
-    </thead>
-  <tbody>
-    <% totalPrice = 0 %>
-    <% totalQty = 0 %>
-    <% @items.each do |item| %>
-        <tr>
-            <th><%= item[0].title %></th>
-            <th><%= item[0].size %></th>
-            <th><%= item[0].description %></th>
-            <th><%= item[0].price %></th>
-        </tr>
-        <% totalPrice += item[0].price * totalQty += item[1].to_i %>
-        <% totalQty += item[1].to_i %>
-    <% end %>
-        <tr>
-            <th scope="col">Общая сумма <%= totalPrice %> Руб.</th>
-            <th scope="col">Всего количество <%= totalQty %></th>
-        </tr>
-    </tbody>
-</table>
+<div class="cart">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Наименование</th>
+                <th scope="col">Размер</th>
+                <th scope="col">Описание</th>
+                <th scope="col">Цена</th>
+            </tr>
+        </thead>
+    <tbody>
+        <% totalPrice = 0 %>
+        <% totalQty = 0 %>
+        <% @items.each do |item| %>
+            <tr>
+                <th><%= item[0].title %></th>
+                <th><%= item[0].size %></th>
+                <th><%= item[0].description %></th>
+                <th><%= item[0].price %></th>
+            </tr>
+            <% totalPrice += item[0].price * totalQty += item[1].to_i %>
+            <% totalQty += item[1].to_i %>
+        <% end %>
+            <tr>
+                <th scope="col">Общая сумма <%= totalPrice %> Руб.</th>
+                <th scope="col">Всего количество <%= totalQty %></th>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
-<form action="/order" methods="POST" role="form">
+<form action="/place_order" methods="POST" role="form">
 
-    <input name="order[orders_input]" type="hidden" value="<%= @ordersInput %>" />
+    <input name="order[orders_input]" type="hidden" value="<%= @orders_input %>" />
 
     <div class="form-group">
         <label>Ваше имя</label>
@@ -46,4 +48,5 @@
         <textarea name="order[adress]" type="text" class="form-control" placeholder="Доставка по адресу"></textarea>
     </div>
     <button type="submit" class="btn btn-primary">ОТПРАВИТЬ</button>
+    <button class="btn btn-danger" onclick="return cancelOrder();">УДАЛИТЬ</button>
 </form>

@@ -48,3 +48,13 @@ function getOrders() {
     };
     return orders;
 };
+
+function cancelOrder() {
+    localStorage.clear();
+    updateOrders();
+    updateButton();
+    
+    return false;
+
+    const cart = document.querySelector('.cart').text("asd");
+};
