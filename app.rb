@@ -20,7 +20,7 @@ get '/about' do
   erb :about
 end
 
-post '/order_placed' do
+post '/place_order' do
   @order = Order.create params[:order]
   erb :order_placed
 end
@@ -47,6 +47,7 @@ def parseOrdersInput orders_input
 
     id = s3[1]
     cnt = s2[1]
+
     arr2 = [id, cnt]
     arr.push arr2
   end
