@@ -20,6 +20,15 @@
     min-height: 50px;
 }
 
+.orders-button{
+    background-color: unset;
+    border: none;
+}
+.orders-button:hover{
+    background-color: unset;
+    text-decoration: underline;
+}
+
 @media screen and (max-width: 768px){
     .image-custom{
         height: 100%;

@@ -49,12 +49,12 @@ function getOrders() {
     return orders;
 };
 
-function cancelOrder() {
+function cancel_order() {
     localStorage.clear();
+    
     updateOrders();
     updateButton();
     
-    const cart = document.querySelector('.cart').text("Ваша корзина очищена");
-
+    const cart = document.querySelector('.cart').textContent = "Ваша корзина очищена!";
     return false;
 };
